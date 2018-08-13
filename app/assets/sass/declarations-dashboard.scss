@@ -1,0 +1,57 @@
+// global styles for <a> and <p> tags
+.govuk_decs_list {
+    padding: 0px 10px 0px 10px;
+    margin: 0px;
+    width: 100%;
+    .govuk_decs_list_item {
+        display: flex;
+	    flex-wrap: wrap;
+        box-sizing: border-box;
+        padding-bottom: 20px;
+        span {
+            flex: 0 0 25%;
+        }
+        span:last-child {
+            text-align: right;
+        }
+    }
+}
+
+.dec-grey {
+    background-color:  	#6f777b!important;
+}
+
+.dec-red {
+    //background-color: #b10e1e!important;
+    background-color:  	#6f777b!important;
+}
+
+.dec-text-align-right {
+    text-align: right;
+}
+
+.dec-gov-blue-seperator {
+    //border-bottom: solid 5px $govuk-colour("blue");
+}
+
+.dec-line-separator {
+    height:1px;
+    background:#005ea5;
+    border-bottom: 1px solid #005ea5;
+    margin-bottom: 20px;
+}
+
+.dec-lowercase {
+    text-transform: lowercase !important;
+    padding-bottom: 4px;
+}
+
+.dec-list-actions {
+    padding: 0px 0px 25px 0px;
+    margin: 0px;
+    font-size: 19px;
+    li {
+        display: inline-block;
+        margin-left: 15px;
+    }
+}

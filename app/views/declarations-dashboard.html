@@ -1,0 +1,99 @@
+
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Import declarations
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Import declarations
+      </h1>
+    </div>
+</div>
+
+  <!--<p>Below you will find a list of your most recent declarations.</p>-->
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full dec-text-align-right">
+        <a href="#" role="button" class="govuk-button govuk-button--start">
+          Create new
+        </a>
+    </div>
+
+  </div>
+
+
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+    <table class="govuk-table">
+        
+        <caption class="govuk-table__caption">Declarations</caption>
+        
+        
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">MRN</th>
+            <th class="govuk-table__header" scope="col">Date</th>
+            <th class="govuk-table__header" scope="col">Status</th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          {% for item in declarations %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{item.mrn}}</td>
+              <td class="govuk-table__cell">{{item.date}}</td>
+              
+              <td class="govuk-table__cell">
+                  
+                  {% set regExp = r/^Complete.*/g %}
+                    {% if regExp.test(item.status) %}
+                    <span class="govuk-tag dec-grey dec-lowercase">{{item.status}}</span>
+                  {% endif %}
+
+                  {% set regExp = r/^Submitted.*/g %}
+                    {% if regExp.test(item.status) %}
+                    <span class="govuk-tag dec-lowercase">{{item.status}}</span>
+                  {% endif %}
+
+                  {% set regExp = r/^Cancelled.*/g %}
+                    {% if regExp.test(item.status) %}
+                    <span class="govuk-tag dec-red dec-lowercase">{{item.status}}</span>
+                  {% endif %}
+
+              </td>
+              <td class="govuk-table__cell">
+                {% set regExp = r/^Submitted.*/g %}
+                  {% if regExp.test(item.status) %}
+                  <a href="/declaration/{{item.mrn}}">View</a>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+
+    </table>
+
+     <div class="govuk-inset-text">
+    In some cases it can take a few minutes for declarations status to update.
+  </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+
+

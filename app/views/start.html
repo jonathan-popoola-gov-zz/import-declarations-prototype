@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Import declarations
+{% endblock %}
+
+{% block content %}
+
+
+	 <div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">
+				Manage my import declarations
+			</h1>
+		</div>
+	 </div>
+
+	 <div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+				
+				<p>Use this service to:</p>
+			
+				<ul class="govuk-list govuk-list--bullet">
+					<li>declare your imported goods</li>
+					<li>cancel a declaration you have already submitted</li>
+					<li>see how your declarations are progressing and check for any problems</li>
+				</ul>
+			
+				<h2 class="govuk-heading-m">Who can use this</h2>
+				<p>Traders who need to declare imported goods. You cannot declare your imports online if you use Community Service Providers (CSP) inventory linked software systems.</p>
+				
+				
+
+				<p>You will need:</p>
+
+				<ul class="govuk-list govuk-list--bullet">
+					<li>your <a href="https://www.gov.uk/government-gateway " target="_blank">Government Gateway details</a></li>
+					<li>your <a href="https://www.gov.uk/eori" target="_blank">EORI number</a></li>
+					<li>the <a href="https://www.gov.uk/trade-tariff" target="_blank">commodity codes</a> of your goods</li>
+					<li>the procedure code, which is the reason for the import</li>
+					<li>details of your goods and where they came from</li>
+				</ul>
+			
+				<a href="/declarations-dashboard" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">
+					Start now
+				</a>
+					
+			 
+			</div>
+	 </div>
+
+
+
+{% endblock %}
