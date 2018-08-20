@@ -4,15 +4,31 @@
 
 {% block pageTitle %}
   Import declarations
+
 {% endblock %}
 
+
 {% block content %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  alpha
+</strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your
+      <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-xl">
+      
+      <h1 class="govuk-heading-l">
         Import declarations
       </h1>
+      <hr class="eds-hr">
     </div>
 </div>
 
@@ -21,7 +37,7 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-full dec-text-align-right">
-        <a href="#" role="button" class="govuk-button govuk-button--start">
+        <a href="/start-declaration" role="button" class="govuk-button govuk-button--start">
           Create new
         </a>
     </div>
@@ -43,7 +59,9 @@
         
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col"></th>
             <th class="govuk-table__header" scope="col">MRN</th>
+            <!--<th class="govuk-table__header" scope="col">LRN</th>-->
             <th class="govuk-table__header" scope="col">Date</th>
             <th class="govuk-table__header" scope="col">Status</th>
             <th class="govuk-table__header" scope="col"></th>
@@ -53,10 +71,22 @@
         <tbody class="govuk-table__body">
           {% for item in declarations %}
             <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {% set regExp = r/^control.*/g %}
+                  {% if regExp.test(item.status) %}
+                  <span class="imp-dec-notification-badge">1</span> 
+                {% endif %}
+              </td>
               <td class="govuk-table__cell">{{item.mrn}}</td>
+              <!--<td class="govuk-table__cell">123218765412343212345678AWE2</td>-->
               <td class="govuk-table__cell">{{item.date}}</td>
               
               <td class="govuk-table__cell">
+
+                  {% set regExp = r/^control.*/g %}
+                    {% if regExp.test(item.status) %}
+                    <span class="govuk-tag dec-red  dec-lowercase">{{item.status}}</span>
+                  {% endif %}
                   
                   {% set regExp = r/^Complete.*/g %}
                     {% if regExp.test(item.status) %}
@@ -70,12 +100,17 @@
 
                   {% set regExp = r/^Cancelled.*/g %}
                     {% if regExp.test(item.status) %}
-                    <span class="govuk-tag dec-red dec-lowercase">{{item.status}}</span>
+                    <span class="govuk-tag dec-grey dec-lowercase">{{item.status}}</span>
                   {% endif %}
 
               </td>
               <td class="govuk-table__cell">
                 {% set regExp = r/^Submitted.*/g %}
+                  {% if regExp.test(item.status) %}
+                  <a href="/declaration/{{item.mrn}}">View</a>
+                {% endif %}
+
+                {% set regExp = r/^control.*/g %}
                   {% if regExp.test(item.status) %}
                   <a href="/declaration/{{item.mrn}}">View</a>
                 {% endif %}

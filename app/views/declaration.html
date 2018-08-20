@@ -7,6 +7,16 @@
 {% endblock %}
 
 {% block content %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  alpha
+</strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your
+      <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
 
 <a href="/declarations-dashboard" class="govuk-back-link">Import declarations</a>
 
@@ -18,7 +28,15 @@
       </h1>     
     </div>
     <div class="govuk-grid-column-one-third dec-text-align-right">
-        <p><span class="govuk-tag dec-lowercase">awaiting goods</span></p>
+        {% set regExp = r/^43e2UQ6I3EFJZrte.*/g %}
+          {% if regExp.test(mrn) %}
+              <p><span class="govuk-tag dec-lowercase dec-red">control</span></p>
+          {% endif %}
+
+          {% set regExp = r/^QZE2UQ6I3EFJZNI.*/g %}
+          {% if regExp.test(mrn) %}
+              <p><span class="govuk-tag dec-lowercase">submitted</span></p>
+          {% endif %}
     </div>
 </div>
 
@@ -33,7 +51,7 @@
       <ul class="dec-list-actions"> 
           <li><a href="#">Amend</a></li>
           <li><a href="#">Arrival</a></li>
-          <li><a href="#">Cancel</a></li>
+          <li><a href="/cancel-declaration/{{mrn}}">Cancel</a></li>
       </ul>
   </div>
 </div>
@@ -62,7 +80,7 @@
 
     <table class="govuk-table">
         
-        <caption class="govuk-table__caption">Activity history</caption>
+        <caption class="govuk-table__caption">Updates and history</caption>
         
         
         <thead class="govuk-table__head">
@@ -77,7 +95,31 @@
         <tbody class="govuk-table__body">
 
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><span class="govuk-tag dec-lowercase">awaiting goods</span></td>
+              {% set regExp = r/^43e2UQ6I3EFJZrte.*/g %}
+                  {% if regExp.test(mrn) %}
+                  <td class="govuk-table__cell"><span class="govuk-tag dec-lowercase dec-red">control</span></td>
+                  <td class="govuk-table__cell">16 June 2018</td>
+                  <td class="govuk-table__cell">Inspection required</td>
+                  <td class="govuk-table__cell">
+                      <a href="#">Take action</a>
+                  </td>
+                {% endif %}
+              
+            </tr>
+
+            <tr class="govuk-table__row">
+              {% set regExp = r/^QZE2UQ6I3EFJZNI.*/g %}
+                  {% if regExp.test(mrn) %}
+                  <td class="govuk-table__cell"><span class="govuk-tag dec-lowercase">submitted</span></td>
+                  <td class="govuk-table__cell">16 June 2018</td>
+                  <td class="govuk-table__cell">You have failed to provide the required control documents</td>
+                  <td class="govuk-table__cell">
+                {% endif %}
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><span class="govuk-tag dec-lowercase dec-grey ">awaiting goods</span></td>
               <td class="govuk-table__cell">15 June 2018</td>
               <td class="govuk-table__cell">Awaiting arrival of goods</td>
               <td class="govuk-table__cell">

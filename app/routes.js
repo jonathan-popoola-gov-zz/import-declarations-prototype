@@ -16,6 +16,10 @@ const router = express.Router()
 
 var dataService = {
   data: [
+    {            'date': '14 June 2018',
+                 'mrn': '43e2UQ6I3EFJZrte',
+                 'status': 'control'
+                },
     {            'date': '13 June 2018',
                  'mrn': 'QZE2UQ6I3EFJZNI',
                  'status': 'Submitted'
@@ -61,16 +65,24 @@ router.get('/', function (req, res) {
   res.render('start');
 });
 
+router.get('/start-declaration', function (req, res) {
+  res.render('start-declaration');
+});
+
 router.get('/declarations-dashboard', function (req, res) {
   res.render('declarations-dashboard', {'declarations' : dataService.get()});
 });
 
 router.get('/declaration/:mrn', function (req, res) {
-  
-  //dataService.storeDataInit();
-  req.session.myData = {'bob': 'here'};
-  console.log("session data here:", req.session);
   res.render('declaration', {'declarations' : dataService.get(), 'mrn': req.params.mrn});
+});
+
+router.get('/cancel-declaration/:mrn', function (req, res) {
+  res.render('cancel-declaration', {'declarations' : dataService.get(), 'mrn': req.params.mrn});
+});
+
+router.get('/confirm-cancel/:mrn', function (req, res) {
+  res.render('confirm-cancel', {'declarations' : dataService.get(), 'mrn': req.params.mrn});
 });
 
 module.exports = router
