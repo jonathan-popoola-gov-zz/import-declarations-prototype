@@ -26,7 +26,7 @@
     <div class="govuk-grid-column-full">
       
       <h1 class="govuk-heading-l">
-        Import declarations
+        Your import declarations
       </h1>
       <hr class="eds-hr">
     </div>
@@ -54,15 +54,16 @@
 
     <table class="govuk-table">
         
-        <caption class="govuk-table__caption">Declarations</caption>
+        <!-- <caption class="govuk-table__caption">Declarations</caption> -->
         
         
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="col"></th>
-            <th class="govuk-table__header" scope="col">MRN</th>
-            <!--<th class="govuk-table__header" scope="col">LRN</th>-->
             <th class="govuk-table__header" scope="col">Date</th>
+            <th class="govuk-table__header" scope="col">Movement Reference Number (MRN)</th>
+            <!--<th class="govuk-table__header" scope="col">LRN</th>-->
+            
             <th class="govuk-table__header" scope="col">Status</th>
             <th class="govuk-table__header" scope="col"></th>
           </tr>
@@ -77,9 +78,10 @@
                   <span class="imp-dec-notification-badge">1</span> 
                 {% endif %}
               </td>
+              <td class="govuk-table__cell">{{item.date}}</td>
               <td class="govuk-table__cell">{{item.mrn}}</td>
               <!--<td class="govuk-table__cell">123218765412343212345678AWE2</td>-->
-              <td class="govuk-table__cell">{{item.date}}</td>
+              
               
               <td class="govuk-table__cell">
 

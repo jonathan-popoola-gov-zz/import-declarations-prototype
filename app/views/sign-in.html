@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Manage your import declarations
+{% endblock %}
+
+{% block content %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag ">
+  alpha
+</strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your
+      <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+
+	 <div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">
+				Sign in
+			</h1>
+		</div>
+	 </div>
+
+	 <div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+				
+				<p>Enter your Government Gateway credentials to sign in. You received these when you created your HMRC online account.</p>					
+			 
+			</div>
+	 </div>
+
+	 <div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+				<form>
+
+						<div class="govuk-form-group">
+							<label class="govuk-label" for="email">
+								User ID
+							</label>
+							<!-- <span id="email-hint" class="govuk-hint">
+								We’ll only use this to send you a receipt
+							</span> -->
+							<input class="govuk-input" id="email" name="email" type="text" aria-describedby="email-hint">
+						</div>
+
+						<div class="govuk-form-group">
+							<label class="govuk-label" for="email">
+								Password
+							</label>
+							<!-- <span id="email-hint" class="govuk-hint">
+								We’ll only use this to send you a receipt
+							</span> -->
+							<input class="govuk-input" id="password" name="password" type="password" aria-describedby="email-hint">
+						</div>
+
+						<a href="/declarations-dashboard" class="govuk-button">
+							Sign in
+						</a>
+
+				</form>
+
+	</div>
+</div>	
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		<h2 class="govuk-heading-m">
+				Problems signing in
+		</h2>
+
+		<ul class="govuk-list">
+			<li><a class="govuk-link" href="#">Don’t have a Government Gateway account</a></li>
+			<li><a class="govuk-link" href="#">Forgotten user ID</a></li>
+			<li><a class="govuk-link" href="#">Forgotten password</a></li>
+			<li><a class="govuk-link" href="#">Forgotten user ID and password</a></li>
+			<li><a class="govuk-link" href="#">Get help from HMRC’s automated assistant These links will open in a new window.</a></li>
+		</ul>
+
+	</div>	
+</div>	
+
+
+
+{% endblock %}

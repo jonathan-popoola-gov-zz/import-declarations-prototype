@@ -32,7 +32,7 @@ var dataService = {
                  'mrn': '1GPUG93ZB5K0LD',
                  'status': 'Complete'
                 },
-                {'date': 'Feburary 14 2018',
+                {'date': '14 Feburary 2018',
                  'mrn': 'BHFRI75OO8T9J71',
                  'status': 'Cancelled'
                 }
@@ -65,6 +65,10 @@ router.get('/', function (req, res) {
   res.render('start');
 });
 
+router.get('/sign-in', function (req, res) {
+  res.render('sign-in');
+});
+
 router.get('/start-declaration', function (req, res) {
   res.render('start-declaration');
 });
@@ -84,6 +88,8 @@ router.get('/cancel-declaration/:mrn', function (req, res) {
 router.get('/confirm-cancel/:mrn', function (req, res) {
   res.render('confirm-cancel', {'declarations' : dataService.get(), 'mrn': req.params.mrn});
 });
+
+
 
 module.exports = router
 
