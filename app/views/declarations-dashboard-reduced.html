@@ -58,28 +58,6 @@
 
   <!--<p>Below you will find a list of your most recent declarations.</p>-->
 
-  <div class="govuk-grid-row">
-
-    <!-- <div class="govuk-grid-column-full dec-text-align-right">
-        <a href="/start-declaration" role="button" class="govuk-button govuk-button--start">
-          Create new
-        </a>
-    </div> -->
-
-    <div class="govuk-grid-column-full">
-
-      <div class="govuk-inset-text">
-        It can take a few minutes for declarations status to update.
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-
-
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-full">
@@ -91,54 +69,23 @@
         
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="col"></th>
+            
             <th class="govuk-table__header" scope="col">Date</th>
             <th class="govuk-table__header" scope="col">Movement Reference Number (MRN)</th>
             <!--<th class="govuk-table__header" scope="col">LRN</th>-->
             
-            <th class="govuk-table__header" scope="col">Status</th>
+           
             <th class="govuk-table__header" scope="col"></th>
           </tr>
         </thead>
 
         <tbody class="govuk-table__body">
           {% for item in declarations %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                {% set regExp = r/^control.*/g %}
-                  {% if regExp.test(item.status) %}
-                  <span class="imp-dec-notification-badge">1</span> 
-                {% endif %}
-              </td>
+            <tr class="govuk-table__row">  
               <td class="govuk-table__cell">{{item.date}}</td>
               <td class="govuk-table__cell">{{item.mrn}}</td>
-              <!--<td class="govuk-table__cell">123218765412343212345678AWE2</td>-->
-              
-              
-              <td class="govuk-table__cell">
-
-                  {% set regExp = r/^control.*/g %}
-                    {% if regExp.test(item.status) %}
-                    <span class="govuk-tag dec-red  dec-lowercase">{{item.status}}</span>
-                  {% endif %}
-                  
-                  {% set regExp = r/^Complete.*/g %}
-                    {% if regExp.test(item.status) %}
-                    <span class="govuk-tag dec-grey dec-lowercase">{{item.status}}</span>
-                  {% endif %}
-
-                  {% set regExp = r/^Submitted.*/g %}
-                    {% if regExp.test(item.status) %}
-                    <span class="govuk-tag dec-lowercase">{{item.status}}</span>
-                  {% endif %}
-
-                  {% set regExp = r/^Cancelled.*/g %}
-                    {% if regExp.test(item.status) %}
-                    <span class="govuk-tag dec-grey dec-lowercase">{{item.status}}</span>
-                  {% endif %}
-
-              </td>
-              <td class="govuk-table__cell">
+              <td class="govuk-table__cell"><a href="#">Cancel</a></td>
+              <!-- <td class="govuk-table__cell">
                 {% set regExp = r/^Submitted.*/g %}
                   {% if regExp.test(item.status) %}
                   <a href="/declaration/{{item.mrn}}">View</a>
@@ -148,7 +95,7 @@
                   {% if regExp.test(item.status) %}
                   <a href="/declaration/{{item.mrn}}">View</a>
                 {% endif %}
-              </td>
+              </td> -->
             </tr>
           {% endfor %}
         </tbody>

@@ -77,6 +77,10 @@ router.get('/declarations-dashboard', function (req, res) {
   res.render('declarations-dashboard', {'declarations' : dataService.get()});
 });
 
+router.get('/declarations-dashboard-reduced', function (req, res) {
+  res.render('declarations-dashboard-reduced', {'declarations' : dataService.get()});
+});
+
 router.get('/declaration/:mrn', function (req, res) {
   res.render('declaration', {'declarations' : dataService.get(), 'mrn': req.params.mrn});
 });
@@ -85,8 +89,20 @@ router.get('/cancel-declaration/:mrn', function (req, res) {
   res.render('cancel-declaration', {'declarations' : dataService.get(), 'mrn': req.params.mrn});
 });
 
+router.get('/cancel-declaration-table-view/:mrn', function (req, res) {
+  res.render('cancel-declaration-table-view', {'declarations' : dataService.get(), 'mrn': req.params.mrn});
+});
+
 router.get('/confirm-cancel/:mrn', function (req, res) {
   res.render('confirm-cancel', {'declarations' : dataService.get(), 'mrn': req.params.mrn});
+});
+
+router.get('/create-declaration-part-2', function(req, res) {
+  res.render('create-declaration-part-2');
+});
+
+router.get('/create-declaration-part-3', function(req, res) {
+  res.render('create-declaration-part-3');
 });
 
 

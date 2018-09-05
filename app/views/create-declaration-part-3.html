@@ -18,9 +18,16 @@
   </p>
 </div>
 
-<a href="/declarations-dashboard" class="govuk-back-link">Import declarations</a>
+<!-- <a href="/declarations-dashboard" class="govuk-back-link">Import declarations</a> -->
 
-  <div class="govuk-grid-row">
+{% from "back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/create-declaration-part-2"
+}) }}
+
+  <!-- <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
         Create a declaration
@@ -30,7 +37,7 @@
  
 </div>
 
-<!-- <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
         <div class="dec-line-separator"></div>
     </div>
@@ -41,75 +48,22 @@
     <div class="govuk-grid-column-full">
             <form>
                 <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-                      <!-- <h2 class="govuk-fieldset__heading">
-                        Create an import declaration
-                      </h2> -->
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h2 class="govuk-fieldset__heading">
+                          Parties
+                        </h2>
                     </legend>
-          <div class="govuk-form-group">
+
+
+                    
+                </fieldset>
 
               
-                <label class="govuk-label">Are your goods for free circulation?</label>
-                <span id="changed-name-hint" class="govuk-hint">
-                  Will they be retailed in the UK.
-                </span>
-                <div class="govuk-radios govuk-radios--inline">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="free-circulation-yes" name="free-circulation-yes" type="radio" value="yes">
-                    <label class="govuk-label govuk-radios__label" for="free-circulation-yes">
-                      Yes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="free-circulation-no" name="free-circulation-no" type="radio" value="no">
-                    <label class="govuk-label govuk-radios__label" for="free-circulation-no">
-                      No
-                    </label>
-                  </div>
-                </div>
-              </div>
               
-              <div class="govuk-form-group">
 
-                <label class="govuk-label" for="autocomplete-progressiveEnhancement">Which country are the goods being imported from?</label>
-                  <div class="autocomplete-wrapper">
-                    <select id="autocomplete-progressiveEnhancement">
-                      <option value="fr">France</option>
-                      <option value="de">Germany</option>
-                      <option value="gb" selected>United Kingdom</option>
-                    </select>
-                  </div>
+               
 
-              </div>
-
-            
-
-          
-
-              <div class="govuk-form-group">
-                  <label class="govuk-label">Have the goods arrived?</label>
-                  <span id="changed-name-hint" class="govuk-hint">
-                    Have the goods arrived at your desired port
-                  </span>
-                  <div class="govuk-radios govuk-radios--inline">
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="changed-name-1" name="changed-name" type="radio" value="yes">
-                      <label class="govuk-label govuk-radios__label" for="changed-name-1">
-                        Yes
-                      </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
-                      <label class="govuk-label govuk-radios__label" for="changed-name-2">
-                        No
-                      </label>
-                    </div>
-                  </div>
-              </div>
-
-            </fieldset>
-
-              <a href="/create-declaration-part-2" role="button" class="govuk-button">
+              <a href="#" role="button" class="govuk-button">
                   Continue
                 </a>
 
@@ -383,11 +337,11 @@
       ]
 
 
-      element = document.querySelector('#autocomplete-progressiveEnhancement')
-      accessibleAutocomplete.enhanceSelectElement({
-        selectElement: element,
-        source: countries
-      }) 
+      // element = document.querySelector('#autocomplete-progressiveEnhancement')
+      // accessibleAutocomplete.enhanceSelectElement({
+      //   selectElement: element,
+      //   source: countries
+      // }) 
 
       
 
